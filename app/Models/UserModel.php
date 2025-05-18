@@ -12,11 +12,14 @@ class UserModel extends Authenticatable
 {
     use HasFactory;
 
+    protected $table = 'users';  // nama tabel sesuai di database
+
     protected $fillable = [
         'name',
         'email',
         'password',
-        'role'];
+        'role'
+    ];
 
     public function dokter() {
         return $this->hasOne(DoktersModel::class);
@@ -26,3 +29,5 @@ class UserModel extends Authenticatable
         return $this->hasOne(PasiensModel::class);
     }
 }
+
+

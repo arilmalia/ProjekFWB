@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\UserModel;
 
 class PasiensModel extends Model
 {
@@ -19,6 +20,6 @@ class PasiensModel extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(UserModel::class, 'user_id');
     }
 }

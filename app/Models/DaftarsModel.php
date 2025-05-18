@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Models;
-use app\Models\PasiensModel;
-use app\Models\DoktersModel;
+
+use App\Models\PasiensModel;
+use App\Models\DoktersModel;
 
 use Illuminate\Database\Eloquent\Model;
 
