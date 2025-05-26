@@ -3,23 +3,25 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use App\Models\UserModel;
 
 class PasiensModel extends Model
 {
     protected $table = 'pasiens';
 
-    protected $fillable = [
-        'user_id',
-        'no_pasien',
-        'nama',
-        'umur',
-        'jenis_kelamin',
-    ];
+    protected $fillable = ['user_id', 'no_pasien', 'nama', 'umur', 'jenis_kelamin'];
 
-    public function user(): BelongsTo
+    public function user()
     {
-        return $this->belongsTo(UserModel::class, 'user_id');
+        return $this->belongsTo(User::class);
+    }
+
+    public function daftars()
+    {
+        return $this->hasMany(DaftarsModel::class, 'pasien_id');
+    }
+
+    public function reseps()
+    {
+        return $this->hasMany(ResepsModel::class, 'pasien_id');
     }
 }

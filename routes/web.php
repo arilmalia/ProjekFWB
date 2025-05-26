@@ -12,20 +12,24 @@ Route::get('/', function () {
 });
 
 
+Route::get('/', function () {
+    return view('home');
+});
+
 
   //pasien 
-Route::get('/lihatpasien', [PasienController::class,'LihatPasien']);
+Route::get('/pasiens', [PasienController::class,'LihatPasien']);
 
 
 //dokter
-Route::get('/lihatdokter', [DokterController::class,'LihatDokter']);
+Route::get('/dokters', [DokterController::class,'LihatDokter']);
 
 
 //resep
-Route::get('/lihatresep', [ResepsController::class,'LihatResep']);
+Route::get('/reseps', [ResepsController::class,'LihatResep']);
 
 //user
-Route::get('/lihatuser', [UserController::class,'LihatUser']);
+Route::get('/users', [UserController::class,'LihatUser']);
 
 //daftars
-Route::get('/lihatdaftar', [DaftarController::class,'LihatDaftar']);
+Route::get('/daftars', [DaftarController::class,'LihatDaftar']);

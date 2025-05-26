@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Data User</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-</head>
-<body>
+@extends('resource')
+
+@section('content')
 <div class="container mt-4">
     <h3 class="mb-4">Tabel User</h3>
+
     <table class="table table-bordered table-striped">
-        <thead>
+        <thead class="table-dark">
             <tr>
                 <th>ID</th>
                 <th>Nama</th>
@@ -26,12 +23,11 @@
                 <td>{{ $user->role }}</td>
                 <td>
                     <a href="/edituser/{{ $user->id }}" class="btn btn-success btn-sm">Edit</a>
-                    <a href="/hapususer/{{ $user->id }}" class="btn btn-danger btn-sm">Hapus</a>
+                    <a href="/hapususer/{{ $user->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus user ini?')">Hapus</a>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
 </div>
-</body>
-</html>
+@endsection
