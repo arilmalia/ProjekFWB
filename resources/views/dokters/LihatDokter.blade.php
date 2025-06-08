@@ -1,32 +1,32 @@
 @extends('resource')
+@section('title', 'Data Dokter')
 
 @section('content')
-<div class="container mt-4">
-    <h3 class="mb-4">Tabel Dokter</h3>
-    <table class="table table-bordered table-striped">
-        <thead class="table-dark">
-            <tr>
-                <th>ID</th>
-                <th>No Dokter</th>
-                <th>Nama</th>
-                <th>Spesialis</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($dokter as $dr)
-            <tr>
-                <td>{{ $dr->id }}</td>
-                <td>{{ $dr->no_dokter }}</td>
-                <td>{{ $dr->nama }}</td>
-                <td>{{ $dr->spesialis }}</td>
-                <td>
-                    <a href="/editdokter/{{ $dr->id }}" class="btn btn-success btn-sm">Edit</a>
-                    <a href="/hapusdokter/{{ $dr->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+<br>
+
+</br>
+<h2>Data Dokter</h2>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>No Dokter</th>
+        <th>Spesialis</th>
+        <th>Aksi</th>
+    </tr>
+    @foreach($dokters as $i => $d)
+    <tr>
+        <td>{{ $i + 1 }}</td>
+        <td>{{ $d->nama }}</td>
+        <td>{{ $d->no_dokter }}</td>
+        <td>{{ $d->spesialis }}</td>
+        <td>
+            <a href="{{ url('/editdokter/' . $d->id) }}">Edit</a> |
+            <a href="{{ url('/hapusdokter/' . $d->id) }}" onclick="return confirm('Yakin?')">Hapus</a>
+        </td>
+    </tr>
+    @endforeach
+</table>
+<a href="{{ url('/tambahdokter') }}">Tambah Dokter</a>
 @endsection

@@ -1,33 +1,31 @@
 @extends('resource')
 
-@section('content')
-<div class="container mt-4">
-    <h3 class="mb-4">Tabel User</h3>
+@section('title', 'Lihat User')
 
-    <table class="table table-bordered table-striped">
-        <thead class="table-dark">
-            <tr>
-                <th>ID</th>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($users as $user)
-            <tr>
-                <td>{{ $user->id }}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->role }}</td>
-                <td>
-                    <a href="/edituser/{{ $user->id }}" class="btn btn-success btn-sm">Edit</a>
-                    <a href="/hapususer/{{ $user->id }}" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus user ini?')">Hapus</a>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+@section('content')
+<h2>Daftar User</h2>
+
+
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Nama</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Aksi</th>
+    </tr>
+    @foreach($users as $u)
+    <tr>
+        <td>{{ $u->name }}</td>
+        <td>{{ $u->email }}</td>
+        <td>{{ $u->role }}</td>
+        <td>
+            <a href="{{ url('/edituser/' . $u->id) }}">Edit</a> |
+            <a href="{{ url('/hapususer/' . $u->id) }}" onclick="return confirm('Yakin hapus?')">Hapus</a>
+        </td>
+    </tr>
+    @endforeach
+</table>
+
+<a href="{{ url('/tambahuser') }}">+ Tambah User</a><br><br>
 @endsection

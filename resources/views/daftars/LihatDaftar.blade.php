@@ -1,40 +1,40 @@
 @extends('resource')
-
 @section('title', 'Daftar')
 
 @section('content')
-<div class="container mt-4">
-    <h3 class="mb-4">Tabel Daftar</h3>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nama Pasien</th>
-                <th>Nama Dokter</th>
-                <th>Tanggal Daftar</th>
-                <th>Keluhan</th>
-                <th>Diagnosis</th>
-                <th>Tindakan</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($daftars as $df)
-            <tr>
-                <td>{{ $df->id }}</td>
-                <td>{{ $df->pasien->nama ?? '-' }}</td>
-                <td>{{ $df->dokter->nama ?? '-' }}</td>
-                <td>{{ $df->tanggal_daftar }}</td>
-                <td>{{ $df->keluhan }}</td>
-                <td>{{ $df->diagnosis }}</td>
-                <td>{{ $df->tindakan }}</td>
-                <td>
-                    <a href="/editdaftar/{{ $df->id }}" class="btn btn-success btn-sm">Edit</a>
-                    <a href="/hapusdaftar/{{ $df->id }}" class="btn btn-danger btn-sm">Hapus</a>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+<br>
+
+</br>
+<div>
+<h2>Data Pendaftaran</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Pasien</th>
+        <th>Dokter</th>
+        <th>Tanggal</th>
+        <th>Keluhan</th>
+        <th>Diagnosis</th>
+        <th>Tindakan</th>
+        <th>Aksi</th>
+    </tr>
+    @foreach ($daftar as $item)
+    <tr>
+        <td>{{ $item->pasien->nama }}</td>
+        <td>{{ $item->dokter->nama }}</td>
+        <td>{{ $item->tanggal_daftar }}</td>
+        <td>{{ $item->keluhan }}</td>
+        <td>{{ $item->diagnosis }}</td>
+        <td>{{ $item->tindakan }}</td>
+        <td>
+            <a href="{{ url('/editdaftar/' . $item->id) }}">Edit</a> |
+            <a href="{{ url('/hapusdaftar/' . $item->id) }}" onclick="return confirm('Hapus data ini?')">Hapus</a>
+        </td>
+    </tr>
+    @endforeach
+</table>
+
+
+<a href="{{ url('/tambahdaftar') }}">Tambah Pendaftaran</a>
 </div>
 @endsection

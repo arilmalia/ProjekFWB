@@ -1,33 +1,42 @@
 <?php
 
 namespace App\Models;
-use App\Models\DoktersModel;
-use App\Models\PasiensModel;
-
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use App\Models\DoktersModel;
+use App\Models\PasiensModel;
 
 class UserModel extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
-    protected $table = 'users';  // nama tabel sesuai di database
+    protected $table = 'users';
 
+    // Kolom yang boleh diisi
     protected $fillable = [
         'name',
         'email',
         'password',
-        'role'
+        'role',
     ];
 
-    public function dokter() {
-        return $this->hasOne(DoktersModel::class);
+    // Kolom yang disembunyikan saat serialisasi (optional tapi umum)
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    // Relasi ke dokter (satu user bisa punya satu dokter)
+    public function dokter()
+    {
+        return $this->hasOne(DoktersModel::class, 'user_id');
     }
 
-    public function pasien(){
-        return $this->hasOne(PasiensModel::class);
+    // Relasi ke pasien (satu user bisa punya satu pasien)
+    public function pasien()
+    {
+        return $this->hasOne(PasiensModel::class, 'user_id');
     }
 }
-
-

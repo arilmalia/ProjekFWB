@@ -1,19 +1,26 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="/">Klinik</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/dokters">Data Dokter</a></li>
-                <li class="nav-item"><a class="nav-link" href="/pasiens">Data Pasien</a></li>
-                <li class="nav-item"><a class="nav-link" href="/daftars">Pendaftaran</a></li>
-                <li class="nav-item"><a class="nav-link" href="/reseps">Resep</a></li>
-                <li class="nav-item"><a class="nav-link" href="/users">User</a></li>
-            </ul>
-        </div>
+ <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <!-- <h1 class="sitename">Klinik INF</h1> -->
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="/lihatdaftar">Daftar</a></li>
+          <li><a href="/lihatdokter">Dokter</a></li>
+          <li><a href="/lihatpasien">Pasien</a></li>
+          <li><a href="/lihatresep">Resep</a></li>
+          <li><a href="/lihatuser">User</a></li>
+
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="#consultation">Get Started</a>
+
     </div>
-</nav>
+  </header>
