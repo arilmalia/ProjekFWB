@@ -3,8 +3,7 @@
 @section('title', 'Tambah User')
 
 @section('content')
-<br>
-<br>
+
 <h2>Tambah User</h2>
 <form method="POST" action="{{ url('/tambahuser') }}">
     @csrf
@@ -15,7 +14,7 @@
     <label>Email:</label>
     <input type="email" name="email" required><br><br>
 
-    <label>Password:</label>
+    <label>Password:</label> 
     <input type="password" name="password" required><br><br>
 
     <label>Role:</label>
