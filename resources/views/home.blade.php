@@ -6,24 +6,24 @@
     <div class="row align-items-center">
       <div class="col-lg-6">
         <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
-          <h2>Strategic Solutions for Business Growth</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <h2>Pelayanan Kesehatan Terbaik untuk Keluarga Anda</h2>
+          <p>Kami berkomitmen memberikan layanan medis yang aman, cepat, dan profesional. Didukung oleh tenaga medis berpengalaman dan fasilitas modern untuk menjaga kesehatan Anda dan keluarga. </p>
           <div class="hero-btns" style="margin-top: 20px;">
-            <a href="#consultation" class="btn btn-primary" style="margin-right: 10px;">Get a Free Consultation</a>
-            <a href="#services" class="btn btn-outline">Our Services</a>
+            <a href="/tambahdaftar" class="btn btn-primary" style="margin-right: 10px;">Daftar Konsultasi Gratis</a>
+            <a href="#services" class="btn btn-outline">Lihat Layanan kami</a>
           </div>
           <div class="hero-stats" style="margin-top: 40px; display: flex; gap: 30px;">
             <div class="stat-item" style="text-align: center;">
-              <h3><span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter">15</span>+</h3>
-              <p>Years Experience</p>
+              <h3><span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter">10</span>+</h3>
+              <p>Tahun Pengalaman</p>
             </div>
             <div class="stat-item" style="text-align: center;">
-              <h3><span data-purecounter-start="0" data-purecounter-end="500" data-purecounter-duration="1" class="purecounter">500</span>+</h3>
-              <p>Clients Worldwide</p>
+              <h3><span data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="1" class="purecounter">1000</span>+</h3>
+              <p>Pasien Terlayani</p>
             </div>
             <div class="stat-item" style="text-align: center;">
-              <h3><span data-purecounter-start="0" data-purecounter-end="98" data-purecounter-duration="1" class="purecounter">98</span>%</h3>
-              <p>Success Rate</p>
+              <h3><span data-purecounter-start="0" data-purecounter-end="95" data-purecounter-duration="1" class="purecounter">95</span>%</h3>
+              <p>Kepuasan Pasien</p>
             </div>
           </div>
         </div>

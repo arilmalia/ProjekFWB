@@ -59,6 +59,6 @@ Route::post('/login', [AutentikasiController::class, 'login'])->name('kirimdata'
 Route::get('/logout', [AutentikasiController::class, 'logout']);
 //regis
 Route::get('/register', [AutentikasiController::class, 'tampil_regis']);
-Route::post('/register', [AutentikasiController::class, 'regis'])->name('kirim_data');
+Route::post('/register1', [AutentikasiController::class, 'regis'])->name('kirim_data');
 
 

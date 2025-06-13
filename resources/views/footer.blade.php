@@ -5,9 +5,9 @@
         <div class="col-lg-3 col-md-6 d-flex">
           <i class="bi bi-geo-alt icon"></i>
           <div class="address">
-            <h4>Address</h4>
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
+            <h4>Alamat</h4>
+            <p>MAJENE</p>
+            <p>UNIVERSITAS SULAWESI BARAT</p>
             <p></p>
           </div>
 

@@ -14,13 +14,22 @@
           <li><a href="/lihatdokter">Dokter</a></li>
           <li><a href="/lihatpasien">Pasien</a></li>
           <li><a href="/lihatresep">Resep</a></li>
-          <li><a href="/lihatuser">User</a></li>
+          <li><a href="/lihatuser">Role</a></li>
 
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="#consultation">Get Started</a>
+      <!-- Dropdown Sign In / Sign Up -->
+    <div class="dropdown">
+      <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Get Started
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="/login">Sign In</a></li>
+        <li><a class="dropdown-item" href="/register">Sign Up</a></li>
+      </ul>
+    </div>
 
     </div>
   </header>

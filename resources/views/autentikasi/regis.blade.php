@@ -24,7 +24,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8 col-12">
           <div class="card p-4 shadow rounded border-0">
-            <form method="POST" action="{{ route('kirim_data') }}">
+            <form  action="/register1" method="POST">
               @csrf
               <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap</label>

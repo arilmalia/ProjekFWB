@@ -2,16 +2,19 @@
 @section('title', 'Tambah Dokter')
 
 @section('content')
-<br>
 
-</br>
-<h2>Tambah Dokter</h2>
-<form method="post" action="{{ url('/tambahdokter') }}">
+
+    <h2>Tambah Dokter</h2>
+    <form method="post" action="{{ url('/tambahdokter') }}">
     @csrf
+    <br>
+    </br>
+
+
     <label>User:</label>
     <select name="user_id" required>
         @foreach($users as $u)
-            <option value="{{ $u->id }}">{{ $u->name }}</option>
+            <option value="{{ $u->id }}">{{ $u->name}}</option>
         @endforeach
     </select><br><br>
 

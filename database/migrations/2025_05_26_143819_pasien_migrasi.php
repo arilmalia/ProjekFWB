@@ -11,6 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('logins',function(Blueprint $table){
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->enum('role',['dokter','user', 'pasien'])->default('user');
+            $table->rememberToken();
+            $table->timestamps();
+        });
         Schema::create('pasiens', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
@@ -21,8 +30,10 @@ return new class extends Migration
             $table->timestamps();
 
             // Foreign key constraint
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('logins')->onDelete('cascade');
         });
+
+
     }
 
     /**
@@ -31,5 +42,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('pasiens');
+        Schema::dropIfExists('logins');
     }
 };
