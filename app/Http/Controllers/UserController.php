@@ -14,6 +14,13 @@ class UserController extends Controller
         return view('users.LihatUser', compact('users'));
     }
 
+    //logins
+    public function logins(){
+        $logins = UserModel::all();
+        return view('users.LihatRole', compact('logins'));
+    }
+
+
     public function tambahUser(Request $request)
     {
         if ($request->isMethod('post')) {

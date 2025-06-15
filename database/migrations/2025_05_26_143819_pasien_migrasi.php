@@ -16,10 +16,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum('role',['dokter','user', 'pasien'])->default('user');
+            $table->enum('role',['dokter','admin', 'pasien'])->default('admin');
             $table->rememberToken();
             $table->timestamps();
         });
+        
         Schema::create('pasiens', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');

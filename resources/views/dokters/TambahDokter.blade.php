@@ -1,32 +1,42 @@
 @extends('resource')
+
 @section('title', 'Tambah Dokter')
 
 @section('content')
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Tambah Dokter</h2>
 
-
-    <h2>Tambah Dokter</h2>
     <form method="post" action="{{ url('/tambahdokter') }}">
-    @csrf
-    <br>
-    </br>
+        @csrf
 
+        <div class="mb-3">
+            <label class="form-label">User:</label>
+            <select name="user_id" class="form-control" required>
+                @foreach($users as $u)
+                    <option value="{{ $u->id }}">{{ $u->name }}</option>
+                @endforeach
+            </select>
+        </div>
 
-    <label>User:</label>
-    <select name="user_id" required>
-        @foreach($users as $u)
-            <option value="{{ $u->id }}">{{ $u->name}}</option>
-        @endforeach
-    </select><br><br>
+        <div class="mb-3">
+            <label class="form-label">No Dokter:</label>
+            <input type="text" name="no_dokter" class="form-control" required>
+        </div>
 
-    <label>No Dokter:</label>
-    <input type="text" name="no_dokter" required><br><br>
+        <div class="mb-3">
+            <label class="form-label">Nama:</label>
+            <input type="text" name="nama" class="form-control" required>
+        </div>
 
-    <label>Nama:</label>
-    <input type="text" name="nama" required><br><br>
+        <div class="mb-3">
+            <label class="form-label">Spesialis:</label>
+            <input type="text" name="spesialis" class="form-control" required>
+        </div>
 
-    <label>Spesialis:</label>
-    <input type="text" name="spesialis" required><br><br>
-
-    <button type="submit">Simpan</button>
-</form>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Simpan</button>
+        </div>
+    </form>
+</div>
 @endsection
+

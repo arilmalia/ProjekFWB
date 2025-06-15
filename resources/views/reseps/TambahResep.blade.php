@@ -3,35 +3,43 @@
 @section('title', 'Tambah Resep')
 
 @section('content')
-<br>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Tambah Resep</h2>
 
-</br>
+    <form method="post" action="{{ url('/tambahresep') }}">
+        @csrf
 
-<h2>Tambah Resep</h2>
+        <div class="mb-3">
+            <label class="form-label">Pasien:</label>
+            <select name="pasien_id" class="form-control" required>
+                @foreach($pasiens as $p)
+                    <option value="{{ $p->id }}">{{ $p->nama }}</option>
+                @endforeach
+            </select>
+        </div>
 
-<form method="post" action="{{ url('/tambahresep') }}">
-    @csrf
+        <div class="mb-3">
+            <label class="form-label">Daftar:</label>
+            <select name="daftar_id" class="form-control" required>
+                @foreach($daftars as $d)
+                    <option value="{{ $d->id }}">{{ $d->id }}</option>
+                @endforeach
+            </select>
+        </div>
 
-    <label>Pasien:</label>
-    <select name="pasien_id" required>
-        @foreach($pasiens as $p)
-            <option value="{{ $p->id }}">{{ $p->nama }}</option>
-        @endforeach
-    </select><br><br>
+        <div class="mb-3">
+            <label class="form-label">Nama Obat:</label>
+            <input type="text" name="nama_obat" class="form-control" required>
+        </div>
 
-    <label>Daftar:</label>
-    <select name="daftar_id" required>
-        @foreach($daftars as $d)
-            <option value="{{ $d->id }}">{{ $d->id }}</option>
-        @endforeach
-    </select><br><br>
+        <div class="mb-3">
+            <label class="form-label">Keterangan:</label>
+            <textarea name="keterangan" class="form-control" required></textarea>
+        </div>
 
-    <label>Nama Obat:</label>
-    <input type="text" name="nama_obat" required><br><br>
-
-    <label>Keterangan:</label>
-    <textarea name="keterangan" required></textarea><br><br>
-
-    <button type="submit">Tambah Resep</button>
-</form>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Tambah Resep</button>
+        </div>
+    </form>
+</div>
 @endsection

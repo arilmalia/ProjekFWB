@@ -4,6 +4,7 @@ use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\ResepsController;
+use App\Http\Controllers\RoleControl;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AutentikasiController;
 use Illuminate\Support\Facades\Route;
@@ -17,10 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('home')->name('home');
 // });
 
-Route::get('/', [AutentikasiController::class, 'home'])->name('home');
-
-
-
+Route::get('/home', [AutentikasiController::class, 'home'])->name('home');
 
 //daftars
 Route::get('/lihatdaftar', [DaftarController::class, 'lihatDaftar']);
@@ -46,13 +44,6 @@ Route::match(['get', 'post'], '/tambahresep', [ResepsController::class, 'tambahR
 Route::match(['get', 'post'], '/editresep/{id}', [ResepsController::class, 'editResep']);
 Route::get('/hapusresep/{id}', [ResepsController::class, 'hapusResep']);
 
-
-//users
-Route::get('/lihatuser', [UserController::class, 'lihatUser']);
-Route::match(['get', 'post'], '/tambahuser', [UserController::class, 'tambahUser']);
-Route::match(['get', 'post'], '/edituser/{id}', [UserController::class, 'editUser']);
-Route::get('/hapususer/{id}', [UserController::class, 'hapusUser']);
-
 //autentikasi
 Route::get('/login', [AutentikasiController::class, 'index'])->name('login');
 Route::post('/login', [AutentikasiController::class, 'login'])->name('kirimdata');
@@ -60,5 +51,17 @@ Route::get('/logout', [AutentikasiController::class, 'logout']);
 //regis
 Route::get('/register', [AutentikasiController::class, 'tampil_regis']);
 Route::post('/register1', [AutentikasiController::class, 'regis'])->name('kirim_data');
+
+//logins
+Route::get('/logins', [RoleControl::class, 'logins']);
+
+// //users
+// Route::get('/lihatuser', [UserController::class, 'lihatUser']);
+// Route::match(['get', 'post'], '/tambahuser', [UserController::class, 'tambahUser']);
+// Route::match(['get', 'post'], '/edituser/{id}', [UserController::class, 'editUser']);
+// Route::get('/hapususer/{id}', [UserController::class, 'hapusUser']);
+
+
+
 
 

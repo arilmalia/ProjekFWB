@@ -2,32 +2,49 @@
 @section('title', 'Edit Pasien')
 
 @section('content')
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Edit Pasien</h2>
 
-<h2>Edit Pasien</h2>
-<form method="post" action="{{ url('/editpasien/' . $pasien->id) }}">
-    @csrf
-    <label>User:</label>
-    <select name="user_id" required>
-        @foreach($users as $u)
-            <option value="{{ $u->id }}" {{ $u->id == $pasien->user_id ? 'selected' : '' }}>{{ $u->name }}</option>
-        @endforeach
-    </select><br><br>
+    <form method="post" action="{{ url('/editpasien/' . $pasien->id) }}">
+        @csrf
 
-    <label>No Pasien:</label>
-    <input type="text" name="no_pasien" value="{{ $pasien->no_pasien }}" required><br><br>
+        <div class="mb-3">
+            <label class="form-label">User:</label>
+            <select name="user_id" class="form-control" required>
+                @foreach($users as $u)
+                    <option value="{{ $u->id }}" {{ $u->id == $pasien->user_id ? 'selected' : '' }}>
+                        {{ $u->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
 
-    <label>Nama:</label>
-    <input type="text" name="nama" value="{{ $pasien->nama }}" required><br><br>
+        <div class="mb-3">
+            <label class="form-label">No Pasien:</label>
+            <input type="text" name="no_pasien" value="{{ $pasien->no_pasien }}" class="form-control" required>
+        </div>
 
-    <label>Umur:</label>
-    <input type="number" name="umur" value="{{ $pasien->umur }}" required><br><br>
+        <div class="mb-3">
+            <label class="form-label">Nama:</label>
+            <input type="text" name="nama" value="{{ $pasien->nama }}" class="form-control" required>
+        </div>
 
-    <label>Jenis Kelamin:</label>
-    <select name="jenis_kelamin" required>
-        <option value="Laki-laki" {{ $pasien->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-        <option value="Perempuan" {{ $pasien->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
-    </select><br><br>
+        <div class="mb-3">
+            <label class="form-label">Umur:</label>
+            <input type="number" name="umur" value="{{ $pasien->umur }}" class="form-control" required>
+        </div>
 
-    <button type="submit">Simpan Perubahan</button>
-</form>
+        <div class="mb-3">
+            <label class="form-label">Jenis Kelamin:</label>
+            <select name="jenis_kelamin" class="form-control" required>
+                <option value="Laki-laki" {{ $pasien->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                <option value="Perempuan" {{ $pasien->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+            </select>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+        </div>
+    </form>
+</div>
 @endsection
