@@ -3,8 +3,8 @@
 @section('title', 'Edit Daftar')
 
 @section('content')
-<div class="container mt-4">
-    <h2 class="text-center mb-4">Edit Pendaftaran</h2>
+<div class="container mt-5 pt-5 style="padding-top: 100px;">
+    <h2 class="text-center mb-4 fw-bold">Edit Pendaftaran</h2>
 
     <form method="post" action="{{ url('/editdaftar/' . $daftar->id) }}">
         @csrf

@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('home')->name('home');
 // });
 
-Route::get('/home', [AutentikasiController::class, 'home'])->name('home');
+Route::get('/home', function () { return view('homeumum'); })->name('home');
 
 //daftars
 Route::get('/lihatdaftar', [DaftarController::class, 'lihatDaftar']);
@@ -44,24 +44,50 @@ Route::match(['get', 'post'], '/tambahresep', [ResepsController::class, 'tambahR
 Route::match(['get', 'post'], '/editresep/{id}', [ResepsController::class, 'editResep']);
 Route::get('/hapusresep/{id}', [ResepsController::class, 'hapusResep']);
 
-//autentikasi
-Route::get('/login', [AutentikasiController::class, 'index'])->name('login');
-Route::post('/login', [AutentikasiController::class, 'login'])->name('kirimdata');
+// //autentikasi
+// Route::get('/login', [AutentikasiController::class, 'tampil_login'])->name('login');
+// Route::post('/login', [AutentikasiController::class, 'login'])->name('kirimdata');
 Route::get('/logout', [AutentikasiController::class, 'logout']);
-//regis
-Route::get('/register', [AutentikasiController::class, 'tampil_regis']);
-Route::post('/register1', [AutentikasiController::class, 'regis'])->name('kirim_data');
+// //regis
+// Route::get('/register', [AutentikasiController::class, 'tampil_regis']);
+// Route::post('/register1', [AutentikasiController::class, 'regis'])->name('kirim_data');
 
 //logins
 Route::get('/logins', [RoleControl::class, 'logins']);
 
-// //users
+// // //users
 // Route::get('/lihatuser', [UserController::class, 'lihatUser']);
-// Route::match(['get', 'post'], '/tambahuser', [UserController::class, 'tambahUser']);
-// Route::match(['get', 'post'], '/edituser/{id}', [UserController::class, 'editUser']);
-// Route::get('/hapususer/{id}', [UserController::class, 'hapusUser']);
+// // Route::match(['get', 'post'], '/tambahuser', [UserController::class, 'tambahUser']);
+// // Route::match(['get', 'post'], '/edituser/{id}', [UserController::class, 'editUser']);
+// // Route::get('/hapususer/{id}', [UserController::class, 'hapusUser']);
+
+
+// Route::middleware(['auth', 'role:admin'])->group(function () {
+//     Route::get('/lihatuser', [UserController::class, 'lihatUser']);
+//     // ... route lain khusus admin
+// });
+
+// Route::middleware(['auth', 'role:dokter'])->group(function () {
+//     Route::get('/lihatresep', [ResepsController::class, 'lihatResep']);
+//     // ... route dokter
+// });
+
+// Route::middleware(['auth', 'role:pasien'])->group(function () {
+//     Route::get('/home', [AutentikasiController::class, 'home']);
+//     // ... route pasien
+// });
 
 
 
+Route::get('/login', [AutentikasiController::class, 'tampil_login'])->name('login');
+Route::post('/login', [AutentikasiController::class, 'login'])->name('kirimdata');
 
+Route::get('/register', [AutentikasiController::class, 'tampil_regis'])->name('register');
+Route::post('/register1', [AutentikasiController::class, 'regis'])->name('register1');
 
+// Route::get('/home', [AutentikasiController::class, 'home'])->name('home');
+
+// Redirect untuk role (buat sementara)
+Route::get('/admin', function () { return view('home'); });
+Route::get('/dokter', function () { return view('dokters.home'); });
+Route::get('/pasien', function () { return view('pasiens.home'); });

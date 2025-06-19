@@ -6,8 +6,8 @@
     <div class="row align-items-center">
       <div class="col-lg-6">
         <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
-          <h2>Pelayanan Kesehatan Terbaik untuk Keluarga Anda</h2>
-          <p>Kami berkomitmen memberikan layanan medis yang aman, cepat, dan profesional. Didukung oleh tenaga medis berpengalaman dan fasilitas modern untuk menjaga kesehatan Anda dan keluarga. </p>
+          <h2>Selamat Datang Admin</h2>
+          <p>Ini adalah halaman utama admin. Anda dapat mengelola data klinik di sini.</p>
           <div class="hero-btns" style="margin-top: 20px;">
             <a href="/tambahdaftar" class="btn btn-primary" style="margin-right: 10px;">Daftar Konsultasi Gratis</a>
             <a href="#services" class="btn btn-outline">Lihat Layanan kami</a>

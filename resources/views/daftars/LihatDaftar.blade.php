@@ -2,8 +2,8 @@
 @section('title', 'Data Pendaftaran')
 
 @section('content')
-<div class="container mt-4">
-    <h2 class="mb-4">Data Pendaftaran</h2>
+<div class="container mt-5 pt-5 style="padding-top: 100px;">
+    <h2 class="text-center mb-4 fw-bold">Data Pendaftaran</h2>
 
     <table class="table table-bordered table-striped">
         <thead class="table-dark">

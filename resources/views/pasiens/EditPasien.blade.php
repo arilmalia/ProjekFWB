@@ -2,8 +2,8 @@
 @section('title', 'Edit Pasien')
 
 @section('content')
-<div class="container mt-4">
-    <h2 class="text-center mb-4">Edit Pasien</h2>
+<div class="container mt-5 pt-5 style="padding-top: 100px;">
+    <h2 class="text-center mb-4 fw-bold">Edit Pasien</h2>
 
     <form method="post" action="{{ url('/editpasien/' . $pasien->id) }}">
         @csrf
@@ -37,8 +37,8 @@
         <div class="mb-3">
             <label class="form-label">Jenis Kelamin:</label>
             <select name="jenis_kelamin" class="form-control" required>
-                <option value="Laki-laki" {{ $pasien->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                <option value="Perempuan" {{ $pasien->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                <option value="L" {{ $pasien->jenis_kelamin == 'L' ? 'selected' : '' }}>Laki-laki</option>
+                <option value="P" {{ $pasien->jenis_kelamin == 'Px' ? 'selected' : '' }}>Perempuan</option>
             </select>
         </div>
 

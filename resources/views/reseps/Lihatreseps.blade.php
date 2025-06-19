@@ -3,8 +3,8 @@
 @section('title', 'Daftar Resep')
 
 @section('content')
-<div class="container mt-4">
-    <h2 class="mb-4">Daftar Resep</h2>
+<div class="container mt-5 pt-5 style="padding-top: 100px;">
+    <h2 class="text-center mb-4 fw-bold">Daftar Resep</h2>
 
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
@@ -26,14 +26,18 @@
                 <td>{{ $r->nama_obat }}</td>
                 <td>{{ $r->keterangan }}</td>
                 <td>
-                    <a href="{{ url('/editresep/' . $r->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                    <a href="{{ url('/hapusresep/' . $r->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+                    @if(Auth::check() && Auth::user()->role != 'pasien')
+                        <a href="{{ url('/editresep/' . $r->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{{ url('/hapusresep/' . $r->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+                    @endif
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
 
-    <a href="{{ url('/tambahresep') }}" class="btn btn-success mt-3">+ Tambah Resep</a>
+    @if(Auth::check() && Auth::user()->role != 'pasien')
+        <a href="{{ url('/tambahresep') }}" class="btn btn-success mt-3">+ Tambah Resep</a>
+    @endif
 </div>
 @endsection

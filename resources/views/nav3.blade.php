@@ -8,12 +8,9 @@
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="/admin" class="{{ Request::is('admin') ? 'active text-white' : 'text-white' }}">Home</a></li>
-        <li><a href="/lihatdaftar" class="{{ Request::is('lihatdaftar*') ? 'active text-white' : 'text-white' }}">Daftar</a></li>
-        <li><a href="/lihatdokter" class="{{ Request::is('lihatdokter*') ? 'active text-white' : 'text-white' }}">Dokter</a></li>
-        <li><a href="/lihatpasien" class="{{ Request::is('lihatpasien*') ? 'active text-white' : 'text-white' }}">Pasien</a></li>
-        <li><a href="/lihatresep" class="{{ Request::is('lihatresep*') ? 'active text-white' : 'text-white' }}">Resep</a></li>
-        <li><a href="/logins" class="text-white">Role</a></li>
+        <li><a href="/pasien" class="active text-white">Home</a></li>
+        <li><a href="/lihatpasien" class="text-white">Pasien</a></li>
+        <li><a href="/lihatresep" class="text-white">Resep</a></li>
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list text-white"></i>
     </nav>

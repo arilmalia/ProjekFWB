@@ -3,8 +3,8 @@
 @section('title', 'Tambah Dokter')
 
 @section('content')
-<div class="container mt-4">
-    <h2 class="text-center mb-4">Tambah Dokter</h2>
+<div class="container mt-5 pt-5 style="padding-top: 100px;">
+    <h2 class="text-center mb-4 fw-bold">Tambah Dokter</h2>
 
     <form method="post" action="{{ url('/tambahdokter') }}">
         @csrf

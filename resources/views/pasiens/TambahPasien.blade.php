@@ -2,8 +2,9 @@
 @section('title', 'Tambah Pasien')
 
 @section('content')
-<div class="container mt-4">
-    <h2 class="text-center mb-4">Tambah Pasien</h2>
+<div class="container mt-5 pt-5 style="padding-top: 100px;">
+    
+    <h2 class="text-center mb-4 fw-bold">Tambah Pasien</h2>
 
     <form method="post" action="{{ url('/tambahpasien') }}">
         @csrf
@@ -36,8 +37,8 @@
             <label class="form-label">Jenis Kelamin:</label>
             <select name="jenis_kelamin" class="form-control" required>
                 <option value="">-- Pilih --</option>
-                <option value="Laki-laki">Laki-laki</option>
-                <option value="Perempuan">Perempuan</option>
+                <option value="L">Laki-laki</option>
+                <option value="P">Perempuan</option>
             </select>
         </div>
 
