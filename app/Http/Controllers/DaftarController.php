@@ -11,8 +11,8 @@ class DaftarController extends Controller
 {
     public function lihatDaftar()
     {
-        $daftar = DaftarsModel::with(['pasien', 'dokter'])->get();
-        return view('daftars.LihatDaftar', compact('daftar'));
+        $daftars = DaftarsModel::with(['pasien', 'dokter'])->get();
+        return view('daftars.LihatDaftar', compact('daftars'));
     }
 
     public function tambahDaftar(Request $request)

@@ -16,7 +16,7 @@ class DokterController extends Controller
 
     public function tambahDokter(Request $request)
     {
-        $users = User::all();
+        $users = User::where('role', 'dokter')->get();
 
         if ($request->isMethod('post')) {
             $dokter = new DoktersModel();
@@ -42,7 +42,7 @@ class DokterController extends Controller
     public function editDokter(Request $request, $id)
     {
         $dokter = DoktersModel::findOrFail($id);
-        $users = User::all();
+        $users = User::where('role', 'dokter')->get();
 
         if ($request->isMethod('post')) {
             $dokter->user_id = $request->user_id;

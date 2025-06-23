@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('no_pasien')->unique();
             $table->string('nama');
             $table->integer('umur');
-            $table->enum('jenis_kelamin', ['L', 'P']);
+            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->timestamps();
 
             // Foreign key constraint

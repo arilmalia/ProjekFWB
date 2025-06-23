@@ -59,3 +59,72 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Database Tables & Relationships
+
+### Tabel Utama
+
+#### 1. logins
+| Kolom         | Tipe Data         | Keterangan                |
+|-------------- |------------------|---------------------------|
+| id            | BIGINT (PK)      | Primary Key               |
+| name          | VARCHAR          | Nama user                 |
+| email         | VARCHAR (unique) | Email user                |
+| password      | VARCHAR          | Password user             |
+| role          | ENUM             | ['dokter','admin','pasien']|
+| rememberToken | VARCHAR          | Token                     |
+| timestamps    | TIMESTAMP        | Waktu buat/update         |
+
+#### 2. pasiens
+| Kolom         | Tipe Data         | Keterangan                |
+|-------------- |------------------|---------------------------|
+| id            | BIGINT (PK)      | Primary Key               |
+| user_id       | BIGINT (FK)      | Relasi ke logins.id       |
+| no_pasien     | VARCHAR (unique) | Nomor pasien              |
+| nama          | VARCHAR          | Nama pasien               |
+| umur          | INTEGER          | Umur pasien               |
+| jenis_kelamin | ENUM             | ['Laki-laki','Perempuan'] |
+| timestamps    | TIMESTAMP        | Waktu buat/update         |
+
+#### 3. dokters
+| Kolom         | Tipe Data         | Keterangan                |
+|-------------- |------------------|---------------------------|
+| id            | BIGINT (PK)      | Primary Key               |
+| user_id       | BIGINT (FK)      | Relasi ke logins.id       |
+| no_dokter     | VARCHAR (unique) | Nomor dokter              |
+| nama          | VARCHAR          | Nama dokter               |
+| spesialis     | VARCHAR          | Spesialisasi              |
+| timestamps    | TIMESTAMP        | Waktu buat/update         |
+
+#### 4. daftars
+| Kolom         | Tipe Data         | Keterangan                |
+|-------------- |------------------|---------------------------|
+| id            | BIGINT (PK)      | Primary Key               |
+| pasien_id     | BIGINT (FK)      | Relasi ke pasiens.id      |
+| dokter_id     | BIGINT (FK)      | Relasi ke dokters.id      |
+| tanggal_daftar| DATE             | Tanggal konsultasi        |
+| keluhan       | TEXT             | Keluhan pasien            |
+| diagnosis     | TEXT             | Diagnosis dokter          |
+| tindakan      | TEXT             | Tindakan dokter           |
+| timestamps    | TIMESTAMP        | Waktu buat/update         |
+
+#### 5. reseps
+| Kolom         | Tipe Data         | Keterangan                |
+|-------------- |------------------|---------------------------|
+| id            | BIGINT (PK)      | Primary Key               |
+| pasien_id     | BIGINT (FK)      | Relasi ke pasiens.id      |
+| daftar_id     | BIGINT (FK)      | Relasi ke daftars.id      |
+| nama_obat     | VARCHAR          | Nama obat                 |
+| keterangan    | VARCHAR          | Keterangan resep          |
+| timestamps    | TIMESTAMP        | Waktu buat/update         |
+
+### Relasi Antar Tabel
+- **logins** (1)───(1) **pasiens**
+- **logins** (1)───(1) **dokters**
+- **pasiens** (1)───(N) **daftars** (N)───(1) **dokters**
+- **pasiens** (1)───(N) **reseps** (N)───(1) **daftars**
+
+### Penjelasan Relasi
+- Setiap user login bisa menjadi pasien atau dokter (melalui tabel `pasiens` atau `dokters`).
+- Setiap konsultasi (`daftars`) menghubungkan satu pasien dan satu dokter.
+- Setiap resep (`reseps`) menghubungkan satu pasien dan satu konsultasi.
